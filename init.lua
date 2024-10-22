@@ -182,6 +182,7 @@ vim.diagnostic.config {
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'Visualize [e]rror log dialog', noremap = true, silent = true })
 vim.keymap.set('n', '<leader>f', ':NvimTreeToggle<CR>', { desc = 'Toggle side [f]ile manager', noremap = true, silent = true })
+vim.keymap.set('x', 's', '<Plug>(operator-sandwich-add)', { noremap = false, silent = true })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -279,6 +280,15 @@ require('lazy').setup({
         },
       }
     end,
+  },
+  {
+    'machakann/vim-sandwich',
+    event = 'VeryLazy', -- Lazy load the plugin
+  },
+  {
+    'mg979/vim-visual-multi',
+    branch = 'master',
+    event = 'VeryLazy', -- You can lazily load the plugin or remove this to load it immediately
   },
   {
     'lukas-reineke/indent-blankline.nvim',
