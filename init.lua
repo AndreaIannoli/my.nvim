@@ -282,6 +282,17 @@ require('lazy').setup({
     end,
   },
   {
+    'ThePrimeagen/refactoring.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    },
+    lazy = false,
+    config = function()
+      require('refactoring').setup()
+    end,
+  },
+  {
     'machakann/vim-sandwich',
     event = 'VeryLazy', -- Lazy load the plugin
   },
