@@ -282,6 +282,14 @@ require('lazy').setup({
     end,
   },
   {
+    'nosduco/remote-sshfs.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+    opts = {
+      -- Refer to the configuration section below
+      -- or leave empty for defaults
+    },
+  },
+  {
     'ThePrimeagen/refactoring.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -309,6 +317,17 @@ require('lazy').setup({
     opts = {
       indent = { char = '╎' },
     },
+  },
+  {
+    'kaarmu/typst.vim',
+    ft = 'typst',
+    lazy = false,
+  },
+  {
+    'chomosuke/typst-preview.nvim',
+    lazy = false, -- or ft = 'typst'
+    version = '1.*',
+    build = function() require 'typst-preview'.update() end,
   },
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -467,6 +486,11 @@ require('lazy').setup({
         --   },
         -- },
         -- pickers = {}
+        defaults = {
+          vimgrep_arguments = {
+            '--hidden',
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
